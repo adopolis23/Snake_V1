@@ -1,0 +1,4 @@
+﻿  Window.cpp
+C:\dev\Snake_V1\src\Components\Window.cpp(77,17): warning C4018: '>': signed/unsigned mismatch
+C:\dev\Snake_V1\src\Components\Window.cpp(77,32): warning C4018: '>': signed/unsigned mismatch
+  Snake_game.vcxproj -> C:\dev\Snake_V1\x64\Debug\Snake_game.exe
