@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "SnakeSection.h"
+#include "SnakePlayer.h"
 
 #define LOG(x) std::cout << x << std::endl
 
@@ -21,12 +22,15 @@ namespace Snake {
 		void Render();
 
 	private:
+		//initialization stuff
 		Window* m_Window;
 		unsigned int m_Width;
 		unsigned int m_Height;
 
 		bool isRunning;
 
+		//game objects
+		Snake::SnakePlayer player;
 	};
 
 

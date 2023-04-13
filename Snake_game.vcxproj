@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClCompile Include="src\Components\Game.cpp" />
     <ClCompile Include="src\Components\GameObject.cpp" />
+    <ClCompile Include="src\Components\SnakePlayer.cpp" />
     <ClCompile Include="src\Components\SnakeSection.cpp" />
     <ClCompile Include="src\Components\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_vulkan.h" />
     <ClInclude Include="src\Components\Game.h" />
     <ClInclude Include="src\Components\GameObject.h" />
+    <ClInclude Include="src\Components\SnakePlayer.h" />
     <ClInclude Include="src\Components\SnakeSection.h" />
     <ClInclude Include="src\Components\Window.h" />
   </ItemGroup>

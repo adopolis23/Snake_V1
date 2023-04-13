@@ -20,8 +20,6 @@ void Snake::Game::Start() {
 	
 	isRunning = true;
 
-	
-
 	while (isRunning) {
 		
 		this->HandleInput();
@@ -60,7 +58,7 @@ void Snake::Game::Render() {
 
 
 	//render objects here - ex: snake.render(m_window);
-
+	this->player.Render(m_Window);
 
 
 	//copies the buffer contents to the window renderer - pushes changes maid by render functions to the screen
