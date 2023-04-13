@@ -21,6 +21,7 @@ void Snake::Game::Start() {
 	
 	isRunning = true;
 
+	LOG("Starting Game...");
 	while (isRunning) {
 
 		this->HandleInput();

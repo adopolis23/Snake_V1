@@ -2,12 +2,15 @@
 
 Snake::SnakePlayer::SnakePlayer()
 {
-	this->addSection();
+	for (int i = 0; i < 10; i++) {
+		this->addSection();
+	}
 	this->curr_dir = Direction::RIGHT;
 }
 
 void Snake::SnakePlayer::Update() {
 	this->Move(this->curr_dir);
+
 }
 
 void Snake::SnakePlayer::setDirection(Direction dir) {
@@ -15,23 +18,21 @@ void Snake::SnakePlayer::setDirection(Direction dir) {
 }
 
 
+
+
+
 void Snake::SnakePlayer::Move(Direction dir)
 {
-	switch (dir) {
-	case Direction::UP:
-		this->sections[0].Move(Direction::UP);
-		break;
-	case Direction::DOWN:
-		this->sections[0].Move(Direction::DOWN);
-		break;
-	case Direction::LEFT:
-		this->sections[0].Move(Direction::LEFT);
-		break;
-	case Direction::RIGHT:
-		this->sections[0].Move(Direction::RIGHT);
-		break;
-	};
+
+	for (int i = (this->sections.size() - 1); i > 0; i--) {
+		this->sections[i].setX(this->sections[i - 1].getX());
+		this->sections[i].setY(this->sections[i - 1].getY());
+	}
+	
+	this->sections[0].Move(this->curr_dir);
 }
+
+
 
 
 void Snake::SnakePlayer::Render(Window* window)
@@ -41,8 +42,41 @@ void Snake::SnakePlayer::Render(Window* window)
 	}
 }
 
+
+Snake::SnakeSection::Direction Snake::SnakePlayer::getDirection() {
+	return this->curr_dir;
+}
+
+Snake::SnakeSection::Direction Snake::SnakePlayer::getOppositeDirection() {
+	switch (this->curr_dir) {
+	case Direction::UP:
+		return Direction::DOWN;
+		break;
+	case Direction::DOWN:
+		return Direction::UP;
+		break;
+	case Direction::LEFT:
+		return Direction::RIGHT;
+		break;
+	case Direction::RIGHT:
+		return Direction::LEFT;
+		break;
+	};
+}
+
+
+
 void Snake::SnakePlayer::addSection()
 {
-	Snake::SnakeSection tmp(10, 10, 10, 10);
-	this->sections.push_back(tmp);
+	//if vector is empty then add first section
+	if (this->sections.size() == 0) {
+		Snake::SnakeSection tmp(100, 100, D_SIZE, D_SIZE);
+		this->sections.push_back(tmp);
+	}
+	else {
+		Snake::SnakeSection tmp(0, 0, D_SIZE, D_SIZE);
+		this->sections.push_back(tmp);
+	}
+
+	
 }

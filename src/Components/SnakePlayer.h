@@ -4,6 +4,7 @@
 #include "SnakeSection.h"
 #include <vector>
 
+#define LOG(x) std::cout << x << std::endl
 
 namespace Snake {
 
@@ -18,7 +19,7 @@ namespace Snake {
 		static const Uint8 Snake_Green_Value = 0xaf;
 		static const Uint8 Snake_Blue_Value = 0xff;
 
-		
+		static const int D_SIZE = 10;
 
 	public:
 		//public functions
@@ -29,6 +30,9 @@ namespace Snake {
 
 		void Move(Direction dir);
 		void setDirection(Direction dir);
+
+		Direction getDirection();
+		Direction getOppositeDirection();
 		
 		void addSection();
 
