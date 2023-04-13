@@ -44,12 +44,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\dev\Snake_V1\src\Components;C:\dev\Snake_V1\lib\SDL2-2.26.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\Snake_V1\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\dev\Snake_V1\src\Components;C:\dev\Snake_V1\lib\SDL2-2.26.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\Snake_V1\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -82,6 +82,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\Game.cpp" />
+    <ClCompile Include="src\Components\GameObject.cpp" />
+    <ClCompile Include="src\Components\SnakeSection.cpp" />
     <ClCompile Include="src\Components\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -167,6 +170,9 @@
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_vulkan.h" />
+    <ClInclude Include="src\Components\Game.h" />
+    <ClInclude Include="src\Components\GameObject.h" />
+    <ClInclude Include="src\Components\SnakeSection.h" />
     <ClInclude Include="src\Components\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

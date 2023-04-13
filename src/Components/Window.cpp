@@ -9,12 +9,12 @@ Snake::Window::Window(unsigned int width, unsigned int height)
 
 
 bool Snake::Window::init() {
-	std::cout << "Init from Window" << std::endl;
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		std::cout << "Could not initialize SDL graphics" << std::endl;
 		return false;
 	}
+	std::cout << "SDL Graphics Initialized Successfully" << std::endl;
 
 
 	m_Window = SDL_CreateWindow("Snake Game",
@@ -26,6 +26,7 @@ bool Snake::Window::init() {
 		SDL_Quit();
 		return false;
 	}
+	std::cout << "SDL Window Initialized Successfully" << std::endl;
 
 	m_Renderer = SDL_CreateRenderer(m_Window, -1,
 		SDL_RENDERER_PRESENTVSYNC);
@@ -36,7 +37,7 @@ bool Snake::Window::init() {
 		SDL_Quit();
 		return false;
 	}
-
+	std::cout << "SDL Renderer Initialized Successfully" << std::endl;
 
 
 	m_Texture = SDL_CreateTexture(m_Renderer, SDL_PIXELFORMAT_RGBA8888,
@@ -51,12 +52,53 @@ bool Snake::Window::init() {
 		return false;
 	}
 
+	std::cout << "SDL Texture Initialized Successfully" << std::endl;
 
 
 	m_mainBuffer = new Uint32[m_Width * m_Height];
 
 	return true;
 }
+
+
+
+
+int Snake::Window::handleEvents()
+{
+	SDL_Event event;
+
+	int action = -1;
+
+	while (SDL_PollEvent(&event)) {
+		switch (event.type) {
+		case SDL_QUIT:
+			action = Action::QUIT;
+			break;
+		case SDL_KEYDOWN:
+			switch (event.key.keysym.sym) {
+			case SDLK_LEFT:
+				action = Action::LEFT;
+				break;
+			case SDLK_RIGHT:
+				action = Action::RIGHT;
+				break;
+			case SDLK_DOWN:
+				action = Action::DOWN;
+				break;
+			case SDLK_UP:
+				action = Action::UP;
+				break;
+			}
+			break;
+		}
+	}
+
+	return action;
+}
+
+
+
+
 
 void Snake::Window::clear() {
 	memset(m_mainBuffer, 0, m_Width * m_Height * sizeof(Uint32));
@@ -88,8 +130,15 @@ void Snake::Window::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
 	new_color <<= 8;
 	new_color = new_color + 0xff;
 
-	std::cout << x << " : " << y << " : " << new_color << std::endl;
-
 	m_mainBuffer[y * m_Width + x] = new_color;
 
+}
+
+//Destructor Function
+//free all memory on heap using SDL destroy funcitons
+Snake::Window::~Window() {
+	SDL_DestroyWindow(m_Window);
+	SDL_DestroyRenderer(m_Renderer);
+	SDL_DestroyTexture(m_Texture);
+	delete[] m_mainBuffer;
 }

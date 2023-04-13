@@ -1,1 +1,2 @@
 C:\dev\Snake_V1\x64\Debug\Snake_game.exe
+E:\dev\Snake_V1\x64\Debug\Snake_game.exe

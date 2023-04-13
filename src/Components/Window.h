@@ -7,12 +7,18 @@ namespace Snake {
 
 	class Window {
 
+	public:
+		enum Action { QUIT, UP, DOWN, LEFT, RIGHT };
+
 
 	public:
 		Window(unsigned int width, unsigned int height);
+		~Window();
 
 
 		bool init();
+
+		int handleEvents();
 
 		void clear();
 		void update();
