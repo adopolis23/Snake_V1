@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "SnakeSection.h"
 #include "SnakePlayer.h"
+#include "Food.h"
 
 #define LOG(x) std::cout << x << std::endl
 
@@ -33,6 +34,7 @@ namespace Snake {
 
 		//game objects
 		Snake::SnakePlayer player;
+		Snake::Food apple;
 		unsigned int Score;
 	};
 

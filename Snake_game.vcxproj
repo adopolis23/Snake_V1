@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\Food.cpp" />
     <ClCompile Include="src\Components\Game.cpp" />
     <ClCompile Include="src\Components\GameObject.cpp" />
     <ClCompile Include="src\Components\SnakePlayer.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.26.5\include\SDL_vulkan.h" />
+    <ClInclude Include="src\Components\Food.h" />
     <ClInclude Include="src\Components\Game.h" />
     <ClInclude Include="src\Components\GameObject.h" />
     <ClInclude Include="src\Components\SnakePlayer.h" />

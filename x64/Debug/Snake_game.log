@@ -1,4 +1,2 @@
-﻿  SnakePlayer.cpp
-C:\dev\Snake_V1\src\Components\SnakePlayer.cpp(27,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Snake_V1\src\Components\SnakePlayer.cpp(65): warning C4715: 'Snake::SnakePlayer::getOppositeDirection': not all control paths return a value
-  Snake_game.vcxproj -> C:\dev\Snake_V1\x64\Debug\Snake_game.exe
+﻿  Food.cpp
+  Snake_game.vcxproj -> E:\dev\Snake_V1\x64\Debug\Snake_game.exe
