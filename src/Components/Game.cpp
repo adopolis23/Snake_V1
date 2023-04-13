@@ -12,6 +12,7 @@ Snake::Game::Game()
 	}
 	LOG("Game Window Instance Created");
 
+	this->Score = 0;
 }
 
 
@@ -21,10 +22,11 @@ void Snake::Game::Start() {
 	isRunning = true;
 
 	while (isRunning) {
-		
+
 		this->HandleInput();
 		this->Update();
 		this->Render();
+	
 
 	}
 
@@ -43,12 +45,31 @@ void Snake::Game::HandleInput() {
 		break;
 
 	case Window::Action::LEFT:
+		this->player.setDirection(Direction::LEFT);
+		break;
+
+	case Window::Action::RIGHT:
+		this->player.setDirection(Direction::RIGHT);
+		break;
+
+	case Window::Action::DOWN:
+		this->player.setDirection(Direction::DOWN);
+		break;
+
+	case Window::Action::UP:
+		this->player.setDirection(Direction::UP);
 		break;
 	};
 
 }
 
 void Snake::Game::Update() {
+
+	//UPDATES to happen every 100 ticks
+
+	if (SDL_GetTicks()/10 % 6 == 0) {
+		this->player.Update();
+	}
 
 }
 

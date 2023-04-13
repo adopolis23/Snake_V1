@@ -116,7 +116,7 @@ void Snake::Window::update() {
 void Snake::Window::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
 	
 	//input checking
-	if (x < 0 || x > m_Width || y > m_Height || y < 0) {
+	if (x <= 0 || x >= m_Width || y >= m_Height || y <= 0) {
 		return; 
 	}
 

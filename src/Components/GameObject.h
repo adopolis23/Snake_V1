@@ -21,7 +21,7 @@ namespace Snake {
 		int getY();
 
 		virtual void Update() = 0;
-		virtual void Render(Snake::Window* window) = 0;
+		virtual void Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b) = 0;
 
 	private:
 

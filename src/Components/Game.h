@@ -11,6 +11,8 @@ namespace Snake {
 
 	class Game {
 
+		using Direction = Snake::SnakeSection::Direction;
+
 	public:
 		Game();
 		~Game();
@@ -31,6 +33,7 @@ namespace Snake {
 
 		//game objects
 		Snake::SnakePlayer player;
+		unsigned int Score;
 	};
 
 
