@@ -2,14 +2,19 @@
 
 Snake::SnakePlayer::SnakePlayer()
 {
-	for (int i = 0; i < 10; i++) {
-		this->addSection();
-	}
+	this->addSection();
 	this->curr_dir = Direction::RIGHT;
+	this->lives = 3;
 }
 
 void Snake::SnakePlayer::Update() {
 	this->Move(this->curr_dir);
+
+
+
+	//check if snake went out of bounds
+	int bottom_rightX = this->sections[0].getX() + this->sections[0].getWidth();
+	int bottom_rightY = this->sections[0].getX() + this->sections[0].getWidth();
 
 }
 
@@ -74,9 +79,21 @@ void Snake::SnakePlayer::addSection()
 		this->sections.push_back(tmp);
 	}
 	else {
-		Snake::SnakeSection tmp(0, 0, D_SIZE, D_SIZE);
+		Snake::SnakeSection tmp((-1 * D_SIZE), (-1 * D_SIZE), D_SIZE, D_SIZE);
 		this->sections.push_back(tmp);
 	}
 
 	
+}
+
+
+//refactor (unintended copy being made #TODO)
+bool Snake::SnakePlayer::Collides(GameObject& other) {
+	
+	if (this->sections[0].collidesWith(other)) {
+		return true;
+	}
+
+	return false;
+
 }

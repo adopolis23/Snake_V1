@@ -4,25 +4,28 @@
 
 Snake::Food::Food()
 {
-	this->setWidth(10);
-	this->setHeight(10);
+	this->setWidth(20);
+	this->setHeight(20);
 
 	srand((unsigned)time(NULL));
 }
 
 
-void Snake::Food::randomPosition(int w, int h) {
-	int newX = ((rand() % w) / 10) * 10 - this->getWidth();
-	int newY = ((rand() % h) / 10) * 10 - this->getHeight();
+void Snake::Food::setRandomPosition(int w, int h) {
+	int newX = ((rand() % w) / 20) * 20 - this->getWidth();
+	int newY = ((rand() % h) / 20) * 20 - this->getHeight();
+	
+	LOG("New Position Set: " << newX << " : " << newY);
+	
 	this->setX(newX);
 	this->setY(newY);
 }
 
+void Snake::Food::Render(Snake::Window* window) {
+	this->GameObject::Render(window, Food_Red_Value, Food_Green_Value, Food_Blue_Value);
+}
 
 void Snake::Food::Update()
 {
 }
 
-void Snake::Food::Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b)
-{
-}

@@ -35,3 +35,38 @@ void Snake::GameObject::setY(int y) {
 int Snake::GameObject::getY() {
     return this->y;
 }
+
+
+
+void Snake::GameObject::Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b)
+{
+    for (int i = this->getX(); i <= this->getX() + this->getWidth(); i++) {
+        for (int j = this->getY(); j <= this->getY() + this->getHeight(); j++) {
+
+            window->setPixel(i, j, r, g, b);
+
+        }
+    }
+
+}
+
+
+//lazy collision algo
+bool Snake::GameObject::collidesWith(GameObject& other) {
+
+    float centerX = this->getX() + (this->getWidth() / 2);
+    float centerY = this->getY() + (this->getHeight() / 2);
+
+    //within x direction
+    if (centerX > other.getX() && centerX < (other.getX() + other.getWidth())) {
+
+        if (centerY > other.getY() && centerY < (other.getY() + other.getHeight())) {
+        
+            return true;
+        
+        }
+
+    }
+
+    return false; 
+}

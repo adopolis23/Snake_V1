@@ -28,6 +28,9 @@ namespace Snake {
 		SDL_Window* m_Window;
 		SDL_Renderer* m_Renderer;
 		SDL_Texture* m_Texture;
+		SDL_Surface* m_textSurface;
+		SDL_Texture* m_textTexture;
+		//TTF_Font* m_Font;
 		Uint32* m_mainBuffer;
 
 		unsigned int m_Width;

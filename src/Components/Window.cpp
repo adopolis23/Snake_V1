@@ -1,7 +1,7 @@
 #include "Window.h"
 
 Snake::Window::Window(unsigned int width, unsigned int height)
-	:m_Window(nullptr), m_Renderer(nullptr), m_Width(width), m_Height(height), m_mainBuffer(nullptr)
+	:m_Window(nullptr),m_textTexture(nullptr), m_textSurface(nullptr), m_Renderer(nullptr), m_Width(width), m_Height(height), m_mainBuffer(nullptr)
 {
 	this->init();
 }
@@ -52,7 +52,8 @@ bool Snake::Window::init() {
 		return false;
 	}
 
-	std::cout << "SDL Texture Initialized Successfully" << std::endl;
+	SDL_Log("SDL Texture Initialized Successfully");
+
 
 
 	m_mainBuffer = new Uint32[m_Width * m_Height];

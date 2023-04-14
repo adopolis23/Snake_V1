@@ -44,11 +44,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\lib\SDL_ttf\include\SDL3;$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\lib\SDL_ttf\include\SDL3;$(SolutionDir)\lib\SDL2-2.26.5\include;$(SolutionDir)\src\Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\lib\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

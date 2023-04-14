@@ -36,15 +36,4 @@ void Snake::SnakeSection::Move(Direction dir) {
 
 
 
-void Snake::SnakeSection::Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b)
-{
-	this->setX(this->getX() + 1);
-	for (int i = this->getX(); i <= this->getX() + this->getWidth(); i++) {
-		for (int j = this->getY(); j <= this->getY() + this->getHeight(); j++) {
 
-			window->setPixel(i, j, r, g, b);
-
-		}
-	}
-
-}

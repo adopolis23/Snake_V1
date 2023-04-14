@@ -12,7 +12,9 @@ Snake::Game::Game()
 	}
 	LOG("Game Window Instance Created");
 
+	//game object init
 	this->Score = 0;
+	this->apple.setRandomPosition(m_Width, m_Height);
 }
 
 
@@ -25,7 +27,11 @@ void Snake::Game::Start() {
 	while (isRunning) {
 
 		this->HandleInput();
-		this->Update();
+
+		if (SDL_GetTicks() / 10 % 5 == 0) {
+			this->Update();
+		}
+		
 		this->Render();
 	
 
@@ -68,8 +74,19 @@ void Snake::Game::Update() {
 
 	//UPDATES to happen every 100 ticks
 
-	if (SDL_GetTicks()/10 % 6 == 0) {
-		this->player.Update();
+	
+	this->player.Update();
+
+	if (this->player.Collides(apple)) {
+		this->apple.setRandomPosition(m_Width, m_Height);
+		this->Score++;
+
+		//add 3 sections
+		for (int i = 0; i < 3; i++) {
+			this->player.addSection();
+		}
+
+		LOG("SCORE: " << this->Score);
 	}
 
 }
@@ -81,7 +98,7 @@ void Snake::Game::Render() {
 
 	//render objects here - ex: snake.render(m_window);
 	this->player.Render(m_Window);
-
+	this->apple.Render(m_Window);
 
 	//copies the buffer contents to the window renderer - pushes changes maid by render functions to the screen
 	m_Window->update();

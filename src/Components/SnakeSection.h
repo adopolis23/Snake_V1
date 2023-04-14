@@ -14,7 +14,6 @@ namespace Snake {
 
 
 		void Update();
-		void Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b);
 
 		void Move(Direction dir);
 

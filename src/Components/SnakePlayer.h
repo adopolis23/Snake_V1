@@ -19,7 +19,7 @@ namespace Snake {
 		static const Uint8 Snake_Green_Value = 0xaf;
 		static const Uint8 Snake_Blue_Value = 0xff;
 
-		static const int D_SIZE = 10;
+		static const int D_SIZE = 20;
 
 	public:
 		//public functions
@@ -36,9 +36,12 @@ namespace Snake {
 		
 		void addSection();
 
+		bool Collides(GameObject& other);
+
 	private:
 		std::vector<Snake::SnakeSection> sections; 
 		Direction curr_dir;
+		unsigned int lives; 
 
 	};
 

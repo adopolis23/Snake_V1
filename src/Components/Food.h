@@ -11,12 +11,17 @@ namespace Snake {
 
 	public:
 
+		static const Uint8 Food_Red_Value = 0xff;
+		static const Uint8 Food_Green_Value = 0x10;
+		static const Uint8 Food_Blue_Value = 0x10;
+
+
 		Food();
 
-		void randomPosition(int w, int h);
+		void setRandomPosition(int w, int h);
 
 		void Update() override;
-		virtual void Render(Snake::Window* window, Uint8 r, Uint8 g, Uint8 b) override;
+		void Render(Snake::Window* window);
 
 	private:
 
