@@ -31,6 +31,7 @@ namespace Snake {
 		unsigned int m_Height;
 
 		bool isRunning;
+		bool isPaused;
 
 		//game objects
 		Snake::SnakePlayer player;

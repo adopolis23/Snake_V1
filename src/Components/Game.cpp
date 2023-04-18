@@ -22,14 +22,19 @@ Snake::Game::Game()
 void Snake::Game::Start() {
 	
 	isRunning = true;
+	isPaused = false;
 
 	LOG("Starting Game...");
 	while (isRunning) {
 
-		this->HandleInput();
+		if (!isPaused) {
 
-		if (SDL_GetTicks() / 10 % 5 == 0) {
-			this->Update();
+			this->HandleInput();
+
+			if (SDL_GetTicks() / 10 % 12 == 0) {
+				this->Update();
+			}
+
 		}
 		
 		this->Render();
@@ -52,18 +57,22 @@ void Snake::Game::HandleInput() {
 		break;
 
 	case Window::Action::LEFT:
+		if (this->player.getDirection() == Direction::RIGHT && this->player.getLength() > 1) break;
 		this->player.setDirection(Direction::LEFT);
 		break;
 
 	case Window::Action::RIGHT:
+		if (this->player.getDirection() == Direction::LEFT && this->player.getLength() > 1) break;
 		this->player.setDirection(Direction::RIGHT);
 		break;
 
 	case Window::Action::DOWN:
+		if (this->player.getDirection() == Direction::UP && this->player.getLength() > 1) break;
 		this->player.setDirection(Direction::DOWN);
 		break;
 
 	case Window::Action::UP:
+		if (this->player.getDirection() == Direction::DOWN && this->player.getLength() > 1) break;
 		this->player.setDirection(Direction::UP);
 		break;
 	};
@@ -87,6 +96,10 @@ void Snake::Game::Update() {
 		}
 
 		LOG("SCORE: " << this->Score);
+	}
+
+	if (this->player.getLives() == 0) {
+		this->isPaused = true;
 	}
 
 }

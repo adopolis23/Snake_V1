@@ -177,6 +177,7 @@
     <ClInclude Include="src\Components\GameObject.h" />
     <ClInclude Include="src\Components\SnakePlayer.h" />
     <ClInclude Include="src\Components\SnakeSection.h" />
+    <ClInclude Include="src\Components\Wall.h" />
     <ClInclude Include="src\Components\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

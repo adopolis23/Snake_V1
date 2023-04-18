@@ -4,18 +4,18 @@ Snake::SnakePlayer::SnakePlayer()
 {
 	this->addSection();
 	this->curr_dir = Direction::RIGHT;
-	this->lives = 3;
+	this->lives = 1;
 }
 
 void Snake::SnakePlayer::Update() {
 	this->Move(this->curr_dir);
 
-
-
-	//check if snake went out of bounds
-	int bottom_rightX = this->sections[0].getX() + this->sections[0].getWidth();
-	int bottom_rightY = this->sections[0].getX() + this->sections[0].getWidth();
-
+	for (int i = 1; i < this->sections.size(); i++) {
+		if (this->sections[0].collidesWith(this->sections[i])) {
+			LOG("Snake Collision: Snake Body - " << i);
+			this->lives -= 1; 
+		}
+	}
 }
 
 void Snake::SnakePlayer::setDirection(Direction dir) {
@@ -47,6 +47,14 @@ void Snake::SnakePlayer::Render(Window* window)
 	}
 }
 
+
+unsigned int Snake::SnakePlayer::getLives() {
+	return this->lives;
+}
+
+int Snake::SnakePlayer::getLength() {
+	return this->sections.size();
+}
 
 Snake::SnakeSection::Direction Snake::SnakePlayer::getDirection() {
 	return this->curr_dir;

@@ -34,6 +34,9 @@ namespace Snake {
 		Direction getDirection();
 		Direction getOppositeDirection();
 		
+		unsigned int getLives();
+		int getLength();
+
 		void addSection();
 
 		bool Collides(GameObject& other);

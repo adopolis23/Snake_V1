@@ -14,6 +14,9 @@ Snake::Food::Food()
 void Snake::Food::setRandomPosition(int w, int h) {
 	int newX = ((rand() % w) / 20) * 20 - this->getWidth();
 	int newY = ((rand() % h) / 20) * 20 - this->getHeight();
+
+	if (newX < 0) newX = newX * -1;
+	if (newY < 0) newY = newY * -1;
 	
 	LOG("New Position Set: " << newX << " : " << newY);
 	
