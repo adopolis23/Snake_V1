@@ -4,6 +4,7 @@
 #include "SnakeSection.h"
 #include "SnakePlayer.h"
 #include "Food.h"
+#include "Wall.h"
 
 #define LOG(x) std::cout << x << std::endl
 
@@ -37,6 +38,11 @@ namespace Snake {
 		Snake::SnakePlayer player;
 		Snake::Food apple;
 		unsigned int Score;
+
+		Snake::Wall topWall;
+		Snake::Wall bottomWall;
+		Snake::Wall leftWall;
+		Snake::Wall rightWall;
 	};
 
 

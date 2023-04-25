@@ -4,7 +4,11 @@
 
 //constructor - Creates the game window
 Snake::Game::Game()
-	:m_Width(700), m_Height(450), isRunning(false)
+	:m_Width(700), m_Height(460), isRunning(false),
+	topWall(0,0,m_Width,20),
+	bottomWall(0, m_Height-20, m_Width, 20),
+	rightWall(m_Width-20, 0, 20, m_Height),
+	leftWall(0, 0, 20, m_Height)
 {
 	m_Window = new Window(m_Width, m_Height);
 	if (m_Window == nullptr) {
@@ -31,7 +35,7 @@ void Snake::Game::Start() {
 
 			this->HandleInput();
 
-			if (SDL_GetTicks() / 10 % 12 == 0) {
+			if (SDL_GetTicks() / 10 % 6 == 0) {
 				this->Update();
 			}
 
@@ -98,6 +102,12 @@ void Snake::Game::Update() {
 		LOG("SCORE: " << this->Score);
 	}
 
+	if (this->player.Collides(topWall) || this->player.Collides(bottomWall) || this->player.Collides(leftWall) || this->player.Collides(rightWall))
+	{
+		this->isPaused = true;
+		LOG("Snake wall collision -1 lives");
+	}
+
 	if (this->player.getLives() == 0) {
 		this->isPaused = true;
 	}
@@ -112,6 +122,11 @@ void Snake::Game::Render() {
 	//render objects here - ex: snake.render(m_window);
 	this->player.Render(m_Window);
 	this->apple.Render(m_Window);
+
+	this->topWall.WallRender(m_Window);
+	this->bottomWall.WallRender(m_Window);
+	this->leftWall.WallRender(m_Window);
+	this->rightWall.WallRender(m_Window);
 
 	//copies the buffer contents to the window renderer - pushes changes maid by render functions to the screen
 	m_Window->update();

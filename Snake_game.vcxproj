@@ -87,6 +87,7 @@
     <ClCompile Include="src\Components\GameObject.cpp" />
     <ClCompile Include="src\Components\SnakePlayer.cpp" />
     <ClCompile Include="src\Components\SnakeSection.cpp" />
+    <ClCompile Include="src\Components\Wall.cpp" />
     <ClCompile Include="src\Components\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
