@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "SDL.h"
+#include "SDL_image.h"
 
 
 namespace Snake {
@@ -30,7 +31,6 @@ namespace Snake {
 		SDL_Texture* m_Texture;
 		SDL_Surface* m_textSurface;
 		SDL_Texture* m_textTexture;
-		//TTF_Font* m_Font;
 		Uint32* m_mainBuffer;
 
 		unsigned int m_Width;

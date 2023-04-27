@@ -16,6 +16,8 @@ Snake::Game::Game()
 	}
 	LOG("Game Window Instance Created");
 
+	this->FPS = 10;
+
 	//game object init
 	this->Score = 0;
 	this->apple.setRandomPosition(m_Width, m_Height);
@@ -28,6 +30,9 @@ void Snake::Game::Start() {
 	isRunning = true;
 	isPaused = false;
 
+	Uint32 framestart, frametime;
+	Uint32 framedelay = 1000.0f / this->FPS;
+
 	LOG("Starting Game...");
 	while (isRunning) {
 
@@ -35,9 +40,16 @@ void Snake::Game::Start() {
 
 			this->HandleInput();
 
-			if (SDL_GetTicks() / 10 % 6 == 0) {
-				this->Update();
-			}
+			//if (SDL_GetTicks() / 10 % 6 == 0) {
+				//this->Update();
+			//}
+
+			framestart = SDL_GetTicks();
+			this->Update();
+			frametime = SDL_GetTicks() - framestart;
+
+			if (frametime < framedelay)
+				SDL_Delay((framedelay - frametime));
 
 		}
 		

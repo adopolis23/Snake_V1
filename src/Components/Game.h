@@ -34,6 +34,8 @@ namespace Snake {
 		bool isRunning;
 		bool isPaused;
 
+		unsigned int FPS;
+
 		//game objects
 		Snake::SnakePlayer player;
 		Snake::Food apple;
